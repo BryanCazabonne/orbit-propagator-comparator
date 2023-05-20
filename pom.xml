@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.propagatorComparator</groupId>
+  <artifactId>orbit-propagator-comparator</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Orbit Propagator Comparator</name>
+  <inceptionYear>2023</inceptionYear>
+  <description>Application to compare orbit propagation models.</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <orbit-propagator-comparator.orekit.version>11.3.2</orbit-propagator-comparator.orekit.version>
+    <orbit-propagator-comparator.jackson.version>2.12.5</orbit-propagator-comparator.jackson.version>
+    <orbit-propagator-comparator.compiler.source>1.8</orbit-propagator-comparator.compiler.source>
+    <orbit-propagator-comparator.compiler.target>1.8</orbit-propagator-comparator.compiler.target>
+  </properties>
+  
+  <developers>
+    <developer>
+      <name>Bryan Cazabonne</name>
+      <id>bryan</id>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <issueManagement>
+      <system>Github</system>
+      <url>https://github.com/BryanCazabonne/orbit-propagator-comparator/issues</url>
+  </issueManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.orekit</groupId>
+      <artifactId>orekit</artifactId>
+      <version>${orbit-propagator-comparator.orekit.version}</version>
+      <type>jar</type>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${orbit-propagator-comparator.jackson.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-yaml</artifactId>
+      <version>${orbit-propagator-comparator.jackson.version}</version>
+      <type>jar</type>
+    </dependency>
+  </dependencies>
+
+</project>
