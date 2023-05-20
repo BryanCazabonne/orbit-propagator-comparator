@@ -1,0 +1,98 @@
+##############################################
+# Input file for Orbit Propagator Comparator #
+##############################################
+#
+# Comments:
+#   - Lines starting with '#' are silently ignored
+#
+# Author: Bryan Cazabonne
+
+# Osculating Orbit definition (position in meters, velocity in meter per seconds, angles in degrees, date in ISO 8601)
+orbit:
+  date: "2011-12-12T11:57:20.000"
+  frameName: "EME2000"
+  orbitType:
+    name: "KEPLERIAN"
+    keplerian: 
+      a: 42165000.0
+      e: 0.0025
+      i: 0.001
+      pa: 0.0
+      raan: 0.0
+      v: 0.0
+      positionAngle: "TRUE"
+#    name: "CARTESIAN"
+#    cartesian: 
+#      x: -2747600.0
+#      y: 22572100.0
+#      z: 13522760.0
+#      vx: -2729.5
+#      vy: 1142.7
+#      vz: -2523.9
+#    name: "CIRCULAR"
+#    circular: 
+#      a: 0.0
+#      ex: 0.0
+#      ey: 0.0
+#      i: 0.0
+#      raan: 0.0
+#      alphaV: 0.0
+#      positionAngle: "TRUE"
+#    name: "EQUINOCTIAL"
+#    equinoctial: 
+#      a: 0.0
+#      ex: 0.0
+#      ey: 0.0
+#      hx: 0.0
+#      hy: 0.0
+#      lv: 0.0
+#      positionAngle: "MEAN"
+#    name: "TLE"
+#    tle:
+#      line1: "1 00965U 64083D   20111.63707547  .00000011  00000-0  21535-5 0  9998"
+#      line2: "2 00965  90.0221 193.4663 0041019  14.8599 112.5943 13.56740672739262"
+
+# Body definition (default is a WGS-84 ellipsoid with IERS-2010 conventions and simple EOP frame)
+body:
+  iersConventionYear: 2010
+  frameName: "CIO/2010-based ITRF simple EOP"
+  equatorialRadius: 6378137.0
+  inverseFlattening: 298.257223563
+
+# Numerical integrator (min step (s), max step (s) and position error (m))
+numericalIntegrator:
+  minStep: 0.001
+  maxStep: 300
+#  fixedStep: 120
+  positionError: 1.0
+
+# DSST integrator (min step (s), max step (s) and position error (m))
+dsstIntegrator:
+#  minStep: 0
+#  maxStep: 300
+  fixedStep: 43200.0
+  positionError: 1.0
+  
+# Force models used by the propagator (only the ones used !!!)
+forceModels:
+  # Central body gravity
+  gravity:
+    degree: 6
+    order: 6
+  # 3rd body attraction
+  thirdBody:
+    - name: "Sun"
+#      withSolidTides: true
+    - name: "Moon"
+#      withSolidTides: true
+#  # Drag
+#  drag:
+#    cd: 2.0
+#    area: 13.12
+  # Solar radiation pressure
+  solarRadiationPressure:
+    cr: 1.8
+    area: 50.0
+
+# Propagation duration in days
+propagationDuration: 7

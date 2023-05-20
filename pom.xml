@@ -13,6 +13,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <orbit-propagator-comparator.orekit.version>11.3.2</orbit-propagator-comparator.orekit.version>
+    <orbit-propagator-comparator.hipparchus.version>2.3</orbit-propagator-comparator.hipparchus.version>
     <orbit-propagator-comparator.jackson.version>2.12.5</orbit-propagator-comparator.jackson.version>
     <orbit-propagator-comparator.compiler.source>1.8</orbit-propagator-comparator.compiler.source>
     <orbit-propagator-comparator.compiler.target>1.8</orbit-propagator-comparator.compiler.target>
@@ -50,6 +51,37 @@
       <optional>false</optional>
     </dependency>
     <dependency>
+      <groupId>org.hipparchus</groupId>
+      <artifactId>hipparchus-core</artifactId>
+      <version>${orbit-propagator-comparator.hipparchus.version}</version>
+      <type>jar</type>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.hipparchus</groupId>
+      <artifactId>hipparchus-geometry</artifactId>
+      <version>${orbit-propagator-comparator.hipparchus.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hipparchus</groupId>
+      <artifactId>hipparchus-ode</artifactId>
+      <version>${orbit-propagator-comparator.hipparchus.version}</version>
+      <type>jar</type>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.hipparchus</groupId>
+      <artifactId>hipparchus-fitting</artifactId>
+      <version>${orbit-propagator-comparator.hipparchus.version}</version>
+      <type>jar</type>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.hipparchus</groupId>
+      <artifactId>hipparchus-stat</artifactId>
+      <version>${orbit-propagator-comparator.hipparchus.version}</version>
+    </dependency>
+    <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>${orbit-propagator-comparator.jackson.version}</version>
@@ -63,4 +95,22 @@
     </dependency>
   </dependencies>
 
+<build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${orekit.maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>${orbit-propagator-comparator.compiler.source}</source>
+          <target>${orbit-propagator-comparator.compiler.target}</target>
+          <showWarnings>true</showWarnings>
+          <compilerArgs>
+            <arg>-Xlint:deprecation</arg>
+            <arg>-Xplugin:dataContextPlugin</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
